@@ -4,8 +4,8 @@ description: >-
   Yong Social Finance delivers market news, investing insights, digital asset
   coverage, wealth-building strategies, and educational content on the future
   of finance.
-url: "https://www.yongsocial.com"
-baseurl: ""
+url: "https://yongsocial.github.io"
+baseurl: "/Yong-Social-Finance"
 author: "Yong Social Publisher"
 publisher: "Yong Social Finance"
 twitter_handle: "YongSocial"
