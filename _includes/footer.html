@@ -1,0 +1,36 @@
+<div class="ys-footer">
+  <div class="ys-footer-grid">
+    <div>
+      <h4>News</h4>
+      <ul>
+        <li><a href="{{ '/' | relative_url }}">Latest News</a></li>
+        <li><a href="{{ '/categories/markets/' | relative_url }}">Markets</a></li>
+        <li><a href="{{ '/categories/bitcoin/' | relative_url }}">Bitcoin</a></li>
+        <li><a href="{{ '/categories/ethereum/' | relative_url }}">Ethereum</a></li>
+        <li><a href="{{ '/categories/blockchain/' | relative_url }}">Blockchain</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>About</h4>
+      <ul>
+        <li><a href="{{ '/about-us/' | relative_url }}">About {{ site.title }}</a></li>
+        <li><a href="{{ '/contact-us/' | relative_url }}">Contact Us</a></li>
+        <li><a href="{{ '/privacy-policy/' | relative_url }}">Privacy Policy</a></li>
+        <li><a href="{{ '/editorial-policy/' | relative_url }}">Editorial Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <div class="ys-social">
+        {% if site.social.x %}<a href="{{ site.social.x }}" target="_blank" rel="noopener"><span class="ys-social-icon">X</span><span>X (Twitter)</span></a>{% endif %}
+        {% if site.social.tiktok %}<a href="{{ site.social.tiktok }}" target="_blank" rel="noopener"><span class="ys-social-icon">T</span><span>TikTok</span></a>{% endif %}
+        {% if site.social.youtube %}<a href="{{ site.social.youtube }}" target="_blank" rel="noopener"><span class="ys-social-icon">Y</span><span>YouTube</span></a>{% endif %}
+        {% if site.social.telegram %}<a href="{{ site.social.telegram }}" target="_blank" rel="noopener"><span class="ys-social-icon">TG</span><span>Telegram</span></a>{% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="ys-bottom">
+    <span>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</span>
+    <span>Built with Jekyll</span>
+  </div>
+</div>

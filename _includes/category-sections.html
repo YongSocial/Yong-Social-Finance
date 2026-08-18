@@ -1,0 +1,22 @@
+{% for sec in site.home_sections %}
+<section class="ys-sec" data-ys-section="{{ sec.key }}">
+  <div class="ys-sec-head">
+    <h2>{{ sec.title }}</h2>
+    <span class="ys-sec-sub">{{ sec.subtitle }}</span>
+  </div>
+  <div class="ys-grid">
+    {% assign matched = "" | split: "" %}
+    {% for cat in sec.categories %}
+      {% assign found = site.categories[cat] %}
+      {% if found %}{% assign matched = matched | concat: found %}{% endif %}
+    {% endfor %}
+    {% assign matched = matched | uniq | sort: "date" | reverse %}
+    {% if matched.size == 0 %}
+      <p class="ys-empty">No posts yet — publish one with this category to fill this row.</p>
+    {% endif %}
+    {% for post in matched limit: 3 %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}

@@ -1,0 +1,35 @@
+<aside class="ys-post-sidebar">
+  <div class="ys-row" style="padding:0 0 28px;">
+    <div class="ys-row-head"><h2 class="ys-row-title">TRENDING</h2></div>
+    {% assign trending = site.posts | sort: "date" | reverse | slice: 0, 5 %}
+    <ul style="list-style:none;margin:0;padding:0;">
+      {% for post in trending %}
+      <li style="margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #eee;">
+        <a href="{{ post.url | relative_url }}" style="text-decoration:none;color:#0f1115;font-weight:700;font-size:14px;line-height:1.4;">{{ post.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="ys-row" style="padding:0 0 28px;">
+    <div class="ys-row-head"><h2 class="ys-row-title">ARCHIVE</h2></div>
+    <ul style="list-style:none;margin:0;padding:0;font-size:13px;">
+      {% assign postsByYearMonth = site.posts | group_by_exp: "post", "post.date | date: '%Y-%m'" %}
+      {% for group in postsByYearMonth limit: 12 %}
+      <li style="margin-bottom:6px;"><a href="#" style="text-decoration:none;color:#374151;">{{ group.items.first.date | date: "%B %Y" }} ({{ group.items.size }})</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% assign all_cats = site.categories | sort %}
+  {% if all_cats.size > 0 %}
+  <div class="ys-row" style="padding:0;">
+    <div class="ys-row-head"><h2 class="ys-row-title">LABELS</h2></div>
+    <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px;">
+      {% for cat in site.categories %}
+      <li><a href="{{ '/categories/' | append: cat[0] | slugify | relative_url }}" style="text-decoration:none;font-size:12px;background:#f3f4f6;padding:5px 10px;border-radius:14px;color:#374151;">{{ cat[0] }} ({{ cat[1].size }})</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+</aside>

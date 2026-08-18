@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<div style="max-width:1200px;margin:0 auto;padding:32px 16px;">
+  <h1 style="text-transform:uppercase;letter-spacing:.08em;">{{ page.title }}</h1>
+  <div class="ys-grid" style="margin-top:24px;">
+    {% assign posts = site.categories[page.category] | sort: "date" | reverse %}
+    {% for post in posts %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+</div>

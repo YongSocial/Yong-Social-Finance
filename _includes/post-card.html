@@ -1,0 +1,9 @@
+{% assign p = include.post %}
+<a class="ys-card" href="{{ p.url | relative_url }}">
+  {% if p.image %}<img class="ys-thumb" src="{{ p.image }}" alt="{{ p.title }}" loading="lazy">{% endif %}
+  <div class="ys-card-body">
+    <h3>{{ p.title }}</h3>
+    <p>{{ p.excerpt | strip_html | truncate: 110 }}</p>
+    <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d, %Y" }}</time>
+  </div>
+</a>

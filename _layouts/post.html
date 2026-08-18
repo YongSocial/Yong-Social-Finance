@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article class="ys-post-wrap" style="max-width:1200px;margin:0 auto;padding:32px 16px;display:grid;grid-template-columns:2fr 1fr;gap:40px;">
+  <div class="ys-post-main">
+    <header style="margin-bottom:20px;">
+      {% if page.categories.size > 0 %}
+      <div class="ys-post-labels" style="margin-bottom:10px;">
+        {% for cat in page.categories %}
+          <a href="{{ '/categories/' | append: cat | slugify | relative_url }}" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#2563EB;text-decoration:none;margin-right:10px;">{{ cat }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <h1 style="font-size:32px;line-height:1.25;margin:0 0 12px;">{{ page.title }}</h1>
+      <p style="color:#6b7280;font-size:13px;text-transform:uppercase;letter-spacing:.06em;">
+        By {{ page.author | default: site.author }} &middot; <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      </p>
+    </header>
+
+    {% if page.image %}
+    <img src="{{ page.image }}" alt="{{ page.title }}" style="width:100%;border-radius:12px;margin-bottom:24px;">
+    {% endif %}
+
+    <div class="ys-post-body" style="font-size:17px;line-height:1.7;color:#1a1d24;">
+      {{ content }}
+    </div>
+
+    <div class="ys-post-share" style="margin-top:32px;padding-top:20px;border-top:1px solid #e7e9ee;font-size:13px;color:#6b7280;">
+      Share:
+      <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}" target="_blank" rel="noopener">X</a> &middot;
+      <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+
+  {% include sidebar.html %}
+</article>

@@ -1,0 +1,98 @@
+
+
+/* ===== Crypto ticker ===== */
+
+
+html{scroll-padding-top:42px}body{padding-top:42px !important}@media (max-width:600px){html{scroll-padding-top:38px}body{padding-top:38px !important}}
+.ys-crypto-ticker{position:fixed;top:0;left:0;right:0;width:100%;background:linear-gradient(90deg,#0b1220 0%,#111c34 100%);color:#e6edf6;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13px;line-height:1.2;z-index:99999}
+.ys-crypto-ticker .ys-ct-label{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center;padding:0 12px;background:linear-gradient(90deg,#f7931a,#ffb74d);color:#0b1220;font-weight:700;letter-spacing:.5px;font-size:12px;text-transform:uppercase;z-index:2;box-shadow:2px 0 8px rgba(0,0,0,.25)}
+.ys-crypto-ticker .ys-ct-viewport{overflow:hidden;padding:10px 0;mask-image:linear-gradient(90deg,transparent 0,#000 80px,#000 calc(100% - 40px),transparent 100%);-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 80px,#000 calc(100% - 40px),transparent 100%)}
+.ys-crypto-ticker .ys-ct-track{display:inline-flex;white-space:nowrap;animation:ys-ct-scroll 60s linear infinite;will-change:transform}
+.ys-crypto-ticker:hover .ys-ct-track{animation-play-state:paused}
+.ys-crypto-ticker .ys-ct-item{display:inline-flex;align-items:center;gap:8px;padding:0 18px;border-right:1px solid rgba(255,255,255,.06)}
+.ys-crypto-ticker .ys-ct-item img{width:20px;height:20px;border-radius:50%;flex:none}
+.ys-crypto-ticker .ys-ct-sym{font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.3px}
+.ys-crypto-ticker .ys-ct-price{font-weight:600;color:#e6edf6}
+.ys-crypto-ticker .ys-ct-chg{font-weight:600;padding:2px 6px;border-radius:4px;font-size:12px}
+.ys-crypto-ticker .ys-ct-up{color:#16c784;background:rgba(22,199,132,.1)}
+.ys-crypto-ticker .ys-ct-dn{color:#ea3943;background:rgba(234,57,67,.1)}
+.ys-crypto-ticker .ys-ct-loading{padding:12px 16px;color:#8a96a8;font-size:12px;text-align:center}
+@keyframes ys-ct-scroll{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-50%,0,0)}}
+@media (max-width:600px){.ys-crypto-ticker{font-size:12px}.ys-crypto-ticker .ys-ct-viewport{padding-left:0}.ys-crypto-ticker .ys-ct-item img{width:18px;height:18px}}
+@media (prefers-reduced-motion:reduce){.ys-crypto-ticker .ys-ct-track{animation-duration:180s}}
+
+
+
+
+/* ===== Content sections (watch/markets/wealth/tech) ===== */
+
+    .ys-sec{max-width:1200px;margin:44px auto;padding:0 16px;}
+    .ys-sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;border-bottom:2px solid #111418;padding-bottom:10px;margin-bottom:20px;}
+    .ys-sec-head h2{margin:0;font-size:18px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#0f1115;}
+    .ys-sec-sub{font-size:13px;color:#6b7280;}
+    .ys-watch-player{position:relative;width:100%;padding-bottom:56.25%;background:#0f1115;border-radius:12px;overflow:hidden;box-shadow:0 14px 40px rgba(15,17,21,.18);}
+    .ys-watch-player iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+    .ys-watch-note{margin:16px 0 0;font-size:14px;line-height:1.55;color:#6b7280;}
+    .ys-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+    .ys-card{display:block;text-decoration:none;color:inherit;border:1px solid #e7e9ee;border-radius:10px;overflow:hidden;background:#fff;transition:box-shadow .18s,transform .18s;}
+    .ys-card:hover{box-shadow:0 10px 26px rgba(15,17,21,.12);transform:translateY(-2px);}
+    .ys-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#eef0f4;}
+    .ys-card-body{padding:14px 16px 18px;}
+    .ys-card h3{margin:0 0 8px;font-size:16px;line-height:1.35;font-weight:700;color:#0f1115;}
+    .ys-card p{margin:0;font-size:13px;line-height:1.5;color:#6b7280;}
+    .ys-card time{display:block;margin-top:10px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#9aa1ad;}
+    .ys-related{margin:40px 0 8px;}
+    .ys-related .ys-rl{display:none;}
+    .ys-sec[hidden],.ys-related[hidden]{display:none;}
+    /* Focus reading mode on article pages: collapse MOST READ / homepage blocks */
+    body.ys-focus .widget.PopularPosts,
+    body.ys-focus .ys-sec:not(.ys-related){display:none !important;}
+    .ys-restore{position:fixed;z-index:9999;right:18px;bottom:18px;display:none;align-items:center;gap:8px;
+      padding:12px 18px;border:0;border-radius:999px;cursor:pointer;font:600 13px/1 inherit;
+      letter-spacing:.06em;text-transform:uppercase;color:#fff;background:#0f1115;
+      box-shadow:0 10px 28px rgba(15,17,21,.28);transition:transform .18s,box-shadow .18s;}
+    .ys-restore:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(15,17,21,.34);}
+    .ys-restore.is-on{display:inline-flex;}
+    .ys-restore svg{width:14px;height:14px;fill:currentColor;}
+    @media (max-width:600px){.ys-restore{right:12px;bottom:12px;padding:11px 15px;font-size:12px;}}
+    @media (max-width:900px){.ys-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media (max-width:600px){.ys-grid{grid-template-columns:1fr;}}
+    
+
+/* ===== Sidebar card rows ===== */
+
+  .ys-row{max-width:1200px;margin:0 auto;padding:36px 20px;}
+  .ys-row-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px;}
+  .ys-row-title{font-size:15px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#0f1115;border-left:4px solid var(--ys-orange,#F58220);padding-left:10px;margin:0;}
+  .ys-row-more{font-size:13px;font-weight:600;color:var(--ys-blue,#2563EB);text-decoration:none;white-space:nowrap;}
+  .ys-row-more:hover{text-decoration:underline;}
+  .ys-card-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;}
+  .ys-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;}
+  .ys-card-thumb{aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#eee;margin-bottom:10px;}
+  .ys-card-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ys-card-title{font-size:14.5px;font-weight:700;line-height:1.35;color:#0f1115;}
+  .ys-card:hover .ys-card-title{color:var(--ys-blue,#2563EB);}
+  .ys-empty{color:#8a8f99;font-size:13px;}
+  @media (max-width:900px){.ys-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+  @media (max-width:480px){.ys-card-grid{grid-template-columns:1fr 1fr;gap:12px;}.ys-card-title{font-size:13px;}}
+
+
+/* ===== Footer ===== */
+
+  .ys-footer{background:#0f1115;color:#cfd3da;padding:48px 20px 24px;font-family:inherit;}
+  .ys-footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;}
+  .ys-footer h4{color:#fff;font-size:15px;font-weight:700;margin:0 0 14px;letter-spacing:.3px;}
+  .ys-footer ul{list-style:none;padding:0;margin:0;}
+  .ys-footer li{margin:0 0 8px;}
+  .ys-footer a{color:#cfd3da;text-decoration:none;font-size:14px;transition:color .15s;}
+  .ys-footer a:hover{color:#fff;}
+  .ys-social{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;margin-top:6px;}
+  .ys-social a{display:inline-flex;align-items:center;gap:10px;color:#cfd3da;text-decoration:none;font-size:14px;transition:color .15s;min-width:0;}
+  .ys-social a span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .ys-social a:hover{color:#fff;}
+  .ys-social a:hover .ys-social-icon{background:#2a2f3a;}
+  .ys-social-icon{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:#1a1d24;color:#fff;flex-shrink:0;}
+  .ys-social svg{width:15px;height:15px;fill:currentColor;}
+  .ys-bottom{max-width:1200px;margin:32px auto 0;padding-top:18px;border-top:1px solid #232733;font-size:12px;color:#8a8f99;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  @media (max-width:720px){.ys-footer-grid{grid-template-columns:1fr;gap:28px;}.ys-social{grid-template-columns:repeat(2,minmax(0,1fr));max-width:320px;}}
+  @media (max-width:380px){.ys-social{grid-template-columns:1fr;max-width:100%;}}

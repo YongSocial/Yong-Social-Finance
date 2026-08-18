@@ -1,0 +1,35 @@
+---
+layout: default
+title: Search
+permalink: /search/
+---
+<div style="max-width:800px;margin:0 auto;padding:32px 16px;">
+  <h1>Search</h1>
+  <div id="ys-search-results"></div>
+</div>
+
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var q = (params.get('q') || '').toLowerCase().trim();
+  var out = document.getElementById('ys-search-results');
+  if (!q) { out.innerHTML = '<p>Type a search term in the box above.</p>'; return; }
+
+  fetch('{{ "/search.json" | relative_url }}')
+    .then(function(r){ return r.json(); })
+    .then(function(posts){
+      var results = posts.filter(function(p){
+        var hay = (p.title + ' ' + p.excerpt + ' ' + (p.categories || []).join(' ')).toLowerCase();
+        return hay.indexOf(q) !== -1;
+      });
+      if (!results.length) { out.innerHTML = '<p>No results for &ldquo;' + q + '&rdquo;.</p>'; return; }
+      out.innerHTML = results.map(function(p){
+        return '<article style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #eee;">' +
+          '<a href="' + p.url + '" style="font-size:18px;font-weight:700;text-decoration:none;color:#0f1115;">' + p.title + '</a>' +
+          '<p style="color:#6b7280;font-size:13px;">' + p.date + '</p>' +
+          '<p style="font-size:14px;color:#374151;">' + p.excerpt + '</p>' +
+        '</article>';
+      }).join('');
+    });
+})();
+</script>
