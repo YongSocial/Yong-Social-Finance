@@ -1,0 +1,77 @@
+title: "Yong Social Finance"
+tagline: "Markets, Investing & Digital Assets"
+description: >-
+  Yong Social Finance delivers market news, investing insights, digital asset
+  coverage, wealth-building strategies, and educational content on the future
+  of finance.
+url: "https://www.yongsocial.com"
+baseurl: ""
+author: "Yong Social Publisher"
+publisher: "Yong Social Finance"
+twitter_handle: "YongSocial"
+logo: "/assets/img/logo.png"
+adsense_client: "ca-pub-1639861944051033"
+
+# Primary nav (was Blogger's PageList widget)
+nav_pages:
+  - title: Home
+    url: /
+  - title: About Us
+    url: /about-us/
+  - title: Editorial Policy
+    url: /editorial-policy/
+  - title: ADs Disclosure
+    url: /ads-disclosure/
+  - title: Financial Risk Disclaimer
+    url: /financial-risk-disclaimer/
+
+# The three homepage topic rows (was the HTML202/52/53/54 Blogger-feed widgets)
+home_sections:
+  - key: markets
+    title: "MARKETS"
+    subtitle: "Bitcoin, Ethereum, XRP, equities and macro"
+    categories: [Markets, Crypto, Bitcoin, Ethereum]
+  - key: wealth
+    title: "WEALTH"
+    subtitle: "Personal finance, investing and building wealth"
+    categories: [Wealth, "Personal Finance", Investing, "Passive Income"]
+  - key: aitech
+    title: "AI & TECHNOLOGY"
+    subtitle: "How AI and technology are reshaping money"
+    categories: [AI, Technology, Fintech]
+
+social:
+  x: "https://x.com/YongSocial"
+  tiktok: "https://vm.tiktok.com/ZS96Y8PsHJF3p-41Vpm/"
+  youtube: "https://youtube.com/@yongsocial"
+  telegram: "https://t.me/yongsocial"
+
+youtube_playlist: "PLd1uCEOlp2tQ"
+
+markdown: kramdown
+permalink: /:year/:month/:title/
+paginate: 10
+paginate_path: "/page:num/"
+
+collections:
+  pages:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: "Yong Social Publisher"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - scripts/
+  - Gemfile
+  - Gemfile.lock
